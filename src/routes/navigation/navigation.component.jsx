@@ -5,8 +5,9 @@ import Footer from "../../components/footer/footer.component";
 import { AiOutlineMenu } from 'react-icons/ai'
 import { useEffect, useState } from "react";
 import Drawer from "../../components/drawer/drawer.component";
+import fotoProfil from "../../assets/avatar.png"
 
-const fotoProfil = "https://i.picsum.photos/id/760/200/200.jpg?hmac=MlH81fLiPAKVmDN5qADWkd_299jLg9vp9uVnRn3uxp8";
+
 
 
 const Navigation = () => {
@@ -47,7 +48,7 @@ const Navigation = () => {
             <nav className="mx-auto w-full max-w-4xl flex justify-between items-center px-4 md:px-0 mb-16">
                 <div className="flex items-center gap-8">
                     <div className="h-20 w-20 border-4 border-indigo-500 rounded-full">
-                        <img className="rounded-full" src={fotoProfil} alt="foto-profil" />
+                        <img className="rounded-full w-full h-full" src={fotoProfil} alt="foto-profil" />
                     </div>
                     <nav className="hidden md:block">
                         <NavLink to="/" className={({ isActive }) => isActive ? "transition-all bg-slate-800 dark:bg-indigo-500 rounded-sm px-3 py-2 text-indigo-500 dark:text-white" : "text-black transition-all dark:text-white rounded-sm px-3 py-2"} ><span className="text-base">About</span></NavLink>
