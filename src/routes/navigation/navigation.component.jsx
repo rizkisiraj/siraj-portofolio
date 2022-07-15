@@ -57,7 +57,7 @@ const Navigation = () => {
                     </nav>
                 </div>
                 <div className="flex items-center">
-                <Button name="theme switch" variant="menu" onClick={() => setTheme(!theme)}>
+                <Button aria-label="theme switch" variant="menu" onClick={() => setTheme(!theme)}>
                     {
                         <>
                         <BsSun className={`absolute left-1/2 -translate-x-1/2 bottom-1/2 ${theme ? "translate-y-1/2" : "-translate-y-48"} transition-all le mx-auto`} />
@@ -66,7 +66,7 @@ const Navigation = () => {
                     }
                     
                 </Button>
-                <button name="menu" className="h-12 w-12 md:hidden rounded-md border border-black hover:border-indigo-500 dark:hover:border-indigo-500 dark:border-white text-center ml-4 text-black dark:text-white relative" onClick={() => setShow(!show)}>
+                <button aria-label="menu" className="h-12 w-12 md:hidden rounded-md border border-black hover:border-indigo-500 dark:hover:border-indigo-500 dark:border-white text-center ml-4 text-black dark:text-white relative" onClick={() => setShow(!show)}>
                     <AiOutlineMenu className="mx-auto text-xl " />
                 </button>
                 </div>
