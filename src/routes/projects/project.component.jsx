@@ -3,7 +3,7 @@ import { onSnapshotHandler } from "../../utils/firebase/firebase";
 import { motion } from "framer-motion";
 import ProjectCardLoader from "../../components/loader/project-card-loader.component";
 
-const ProjectCard = lazy(() => import("../../components/project-card/project-card.component"));
+const ProjectsGroup = lazy(() => import("../../components/projects-group/projects-group.component"));
 
 const Project = () => {
     const [projectsData, setProjectsData] = useState([]);  
@@ -24,20 +24,9 @@ const Project = () => {
                 <div className="mb-16">
                 <h1 className="text-4xl font-sans capitalize  font-bold dark:text-indigo-500 mb-12 max-w-fit "><span className="dark:bg-transparent bg-indigo-500 ">Projects</span> 🔦</h1>
                 </div>
-                
-                {
-                projectsData.map(data => {
-                    return (
-                        <Suspense key={Math.floor(Math.random() * 100)} fallback={<ProjectCardLoader />}>
-                        <ProjectCard  data={data} />
-                        </Suspense>
-                    )
-                })
-                }
-                
-
-                
-                
+                <Suspense fallback={<ProjectCardLoader />}>
+                <ProjectsGroup projectList={projectsData} />
+                </Suspense>
         </motion.section>
     )
 }
