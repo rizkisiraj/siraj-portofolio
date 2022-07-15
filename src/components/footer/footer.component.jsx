@@ -23,7 +23,7 @@ const Footer = () => {
         <footer className="w-full max-w-4xl flex justify-center gap-8 py-4 mx-auto mt-24">
             {
                 footerElements.map(icon => (
-                    <a target="_blank" rel="noreferrer" href={icon.link}><Button variant="menu" key={Math.random()*100}>{icon.icon}</Button></a>
+                    <a key={Math.floor(Math.random() * 100)} target="_blank" rel="noreferrer" href={icon.link}><Button variant="menu" key={Math.random()*100}>{icon.icon}</Button></a>
                 ))
             }
         </footer>

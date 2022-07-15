@@ -28,7 +28,7 @@ const ProjectCard = ({data}) => {
                     {
                         stack.map(icon => {
                             return (
-                            <Button variant="badge" key={Math.floor(Math.random() * 100)}>
+                            <Button name="badge" variant="badge" key={Math.floor(Math.random() * 100)}>
                                 {
                                     ICONS[icon]
                                 }

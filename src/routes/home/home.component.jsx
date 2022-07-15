@@ -5,7 +5,6 @@ import { SiMaterialui } from 'react-icons/si';
 import { SiTailwindcss } from 'react-icons/si';
 import Card from '../../components/card/card.component';
 import { motion } from 'framer-motion';
-import { Fragment } from 'react';
 
 const skillSets = [
     {

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
-import ProjectCard from "../../components/project-card/project-card.component";
+import { lazy, Suspense, useEffect, useState } from "react"
 import { onSnapshotHandler } from "../../utils/firebase/firebase";
 import { motion } from "framer-motion";
+import ProjectCardLoader from "../../components/loader/project-card-loader.component";
+
+const ProjectCard = lazy(() => import("../../components/project-card/project-card.component"));
 
 const Project = () => {
     const [projectsData, setProjectsData] = useState([]);  
@@ -22,13 +24,20 @@ const Project = () => {
                 <div className="mb-16">
                 <h1 className="text-4xl font-sans capitalize  font-bold dark:text-indigo-500 mb-12 max-w-fit "><span className="dark:bg-transparent bg-indigo-500 ">Projects</span> 🔦</h1>
                 </div>
+                
                 {
-                projectsData && projectsData.map(data => {
+                projectsData.map(data => {
                     return (
-                        <ProjectCard key={Math.floor(Math.random() * 100)} data={data} />
+                        <Suspense key={Math.floor(Math.random() * 100)} fallback={<ProjectCardLoader />}>
+                        <ProjectCard  data={data} />
+                        </Suspense>
                     )
                 })
-            }
+                }
+                
+
+                
+                
         </motion.section>
     )
 }

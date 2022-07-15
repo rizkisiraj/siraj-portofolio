@@ -48,7 +48,7 @@ const Navigation = () => {
             <nav className="mx-auto w-full max-w-4xl flex justify-between items-center px-4 md:px-0 mb-16">
                 <div className="flex items-center gap-8">
                     <div className="h-20 w-20 border-4 border-indigo-500 rounded-full">
-                        <img className="rounded-full w-full h-full" src={fotoProfil} alt="foto-profil" />
+                        <img className="rounded-full w-full h-full" src={fotoProfil} alt="foto-profil" loading="lazy" />
                     </div>
                     <nav className="hidden md:block">
                         <NavLink to="/" className={({ isActive }) => isActive ? "transition-all bg-slate-800 dark:bg-indigo-500 rounded-sm px-3 py-2 text-indigo-500 dark:text-white" : "text-black transition-all dark:text-white rounded-sm px-3 py-2"} ><span className="text-base">About</span></NavLink>
@@ -57,7 +57,7 @@ const Navigation = () => {
                     </nav>
                 </div>
                 <div className="flex items-center">
-                <Button variant="menu" onClick={() => setTheme(!theme)}>
+                <Button name="theme switch" variant="menu" onClick={() => setTheme(!theme)}>
                     {
                         <>
                         <BsSun className={`absolute left-1/2 -translate-x-1/2 bottom-1/2 ${theme ? "translate-y-1/2" : "-translate-y-48"} transition-all le mx-auto`} />
@@ -66,7 +66,7 @@ const Navigation = () => {
                     }
                     
                 </Button>
-                <button className="h-12 w-12 md:hidden rounded-md border border-black hover:border-indigo-500 dark:hover:border-indigo-500 dark:border-white text-center ml-4 text-black dark:text-white relative" onClick={() => setShow(!show)}>
+                <button name="menu" className="h-12 w-12 md:hidden rounded-md border border-black hover:border-indigo-500 dark:hover:border-indigo-500 dark:border-white text-center ml-4 text-black dark:text-white relative" onClick={() => setShow(!show)}>
                     <AiOutlineMenu className="mx-auto text-xl " />
                 </button>
                 </div>
