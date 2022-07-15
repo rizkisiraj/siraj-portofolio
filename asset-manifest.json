@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/siraj-portofolio/static/css/main.02685480.css",
+    "main.js": "/siraj-portofolio/static/js/main.492cd5df.js",
+    "static/js/787.f62af0ae.chunk.js": "/siraj-portofolio/static/js/787.f62af0ae.chunk.js",
+    "index.html": "/siraj-portofolio/index.html",
+    "main.02685480.css.map": "/siraj-portofolio/static/css/main.02685480.css.map",
+    "main.492cd5df.js.map": "/siraj-portofolio/static/js/main.492cd5df.js.map",
+    "787.f62af0ae.chunk.js.map": "/siraj-portofolio/static/js/787.f62af0ae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.02685480.css",
+    "static/js/main.492cd5df.js"
+  ]
+}
