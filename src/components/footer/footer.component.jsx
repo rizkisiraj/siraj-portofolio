@@ -3,12 +3,27 @@ import { AiFillGithub } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa";
 
+const footerElements = [
+    {
+        link: "https://github.com/rizkisiraj",
+        icon: <AiFillGithub className="mx-auto" />
+    },
+    {
+        link: "https://twitter.com/fatbritishian",
+        icon: <AiOutlineTwitter className="mx-auto" />
+    },
+    {
+        link: "https://www.linkedin.com/in/muhammad-rizki-siraj-1b045b21a/",
+        icon: <FaLinkedin className="mx-auto" />
+    },
+]
+
 const Footer = () => {
     return (
         <footer className="w-full max-w-4xl flex justify-center gap-8 py-4 mx-auto mt-24">
             {
-                [<AiFillGithub className="mx-auto group-hover:text-indigo-500 text-white" />, <AiOutlineTwitter className="mx-auto group-hover:text-indigo-500 text-white" />, <FaLinkedin className="mx-auto group-hover:text-indigo-500 text-white" />].map(icon => (
-                    <Button key={Math.random()*100}>{icon}</Button>
+                footerElements.map(icon => (
+                    <a target="_blank" rel="noreferrer" href={icon.link}><Button variant="menu" key={Math.random()*100}>{icon.icon}</Button></a>
                 ))
             }
         </footer>
