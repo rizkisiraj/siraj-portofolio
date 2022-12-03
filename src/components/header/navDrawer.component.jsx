@@ -27,7 +27,7 @@ const footerElements = [
 
 const types = {
   "sidebar": "hidden bg-indigo-500 sm:flex w-[62px] lg:w-[250px] h-screen dark:bg-gray-900 font-sans px-4 top-0 left-0 overflow-hidden fixed transition-all z-50 flex-col justify-between",
-  "mobile" : "bg-indigo-500 sm:hidden flex w-[250px] h-screen dark:bg-gray-900 font-sans px-4 top-0 right-0 overflow-hidden fixed transition-all z-50 flex-col justify-between"
+  "mobile" : "bg-indigo-500 sm:hidden w-[250px] h-screen dark:bg-gray-900 font-sans px-4 top-0 right-0 overflow-hidden fixed transition-all z-50 flex-col justify-between"
 }
 
 const NavDrawer = ({ setTheme, theme, type, setShow }) => {

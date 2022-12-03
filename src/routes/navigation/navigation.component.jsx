@@ -40,7 +40,7 @@ const Navigation = () => {
     return (
         <>
         <div className="w-full flex relative">
-            <button onClick={() => setShow(true)} aria-label="menu-bar" className="sm:hidden bg-white rounded-md z-10 w-16 h-16 fixed shadow-md right-5 top-5 text-4xl text-indigo-500 dark:text-white text-center">
+            <button onClick={() => setShow(true)} aria-label="menu-bar" className="sm:hidden bg-white rounded-md z-10 w-16 h-16 fixed shadow-md right-5 top-5 text-4xl text-indigo-500 dark:text-white dark:bg-slate-700 text-center">
                 <HiMenuAlt3 className="mx-auto" />
             </button>
           <NavDrawer setShow={setShow} setTheme={setTheme} theme={theme} type="sidebar"/>
