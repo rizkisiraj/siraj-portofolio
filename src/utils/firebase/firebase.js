@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, onSnapshot } from "firebase/firestore"
+import { collection, getFirestore, onSnapshot, where, query, getDocs } from "firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,5 +20,17 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore()
 const projectsRef = collection(db, 'projects');
+const blogsRef = collection(db, 'blogs')
 
-export const onSnapshotHandler = (callback) => onSnapshot(projectsRef, callback); 
+export const onSnapshotHandler = (callback) => onSnapshot(projectsRef, callback);
+export const onBlogSnapshotHandler = (callback) => onSnapshot(blogsRef, callback);
+export const getDocument = async (title, callback) => {
+  const q = query(collection(db, "blogs"), where("title", "==", title));
+
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    callback(doc.data())
+  });
+}

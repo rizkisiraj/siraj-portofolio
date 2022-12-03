@@ -12,7 +12,14 @@ module.exports = {
     fontFamily: {
       'sans': ['Poppins', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        'maxContainer' : '100% - 250px'
+      },
+      backgroundColor: {
+        'navbar-light': '#f8f8f8'
+      }
+    },
   },
   plugins: [],
 }

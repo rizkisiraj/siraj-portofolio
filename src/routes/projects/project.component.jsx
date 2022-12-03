@@ -1,33 +1,49 @@
 import { lazy, Suspense, useEffect, useState } from "react"
 import { onSnapshotHandler } from "../../utils/firebase/firebase";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ProjectCardLoader from "../../components/loader/project-card-loader.component";
+import Modal from "../../components/modal/modal.component";
+const ProjectCard = lazy(() => import("../../components/project-card/project-card.component"));
 
-const ProjectsGroup = lazy(() => import("../../components/projects-group/projects-group.component"));
 
 const Project = () => {
-    const [projectsData, setProjectsData] = useState([]);  
+    const [projectsData, setProjectsData] = useState([]);
+    const [loader, setLoader] = useState(false);  
+    const [selectedId, setSelectedId] = useState(null);
 
     useEffect(() => {
         const unsubscribe = onSnapshotHandler((snapshot) => {
             let dataDump = [];
             snapshot.forEach(snap => dataDump = [...dataDump, snap.data()])
             setProjectsData(dataDump);
+            setLoader(true)
+
         })
         
         return unsubscribe;
-    },[])
+    },[]);
+
 
     return (
-        <motion.section initial={{y: 500}} animate={{y: 0}}>
-            
+        <section className="font-sans p-8">
                 <div className="mb-16">
-                <h1 className="text-4xl font-sans capitalize  font-bold dark:text-indigo-500 mb-12 max-w-fit "><span className="dark:bg-transparent bg-indigo-500 ">Projects</span> 🔦</h1>
+                <h1 className="font-bold text-4xl text-indigo-500 dark:text-white">Projects</h1>
                 </div>
-                <Suspense fallback={<ProjectCardLoader />}>
-                <ProjectsGroup projectList={projectsData} />
-                </Suspense>
-        </motion.section>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {
+                     loader ?  projectsData.map(data => {
+                            return (
+                                <ProjectCard key={data.title} data={data} setSelectedId={setSelectedId} />
+                            )
+                        }) : <ProjectCardLoader />
+                    }
+                </div>
+                <AnimatePresence>
+                {
+                    selectedId && <Modal selectedId={selectedId} setSelectedId={setSelectedId} />
+                }
+                </AnimatePresence>
+        </section>
     )
 }
 

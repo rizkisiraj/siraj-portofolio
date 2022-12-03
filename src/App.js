@@ -2,7 +2,6 @@ import Navigation from "./routes/navigation/navigation.component";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
 const Home = lazy(() => import("./routes/home/home.component"))
 const Blog = lazy(() => import("./routes/blog/blog.component"))
 const Project = lazy(() => import("./routes/projects/project.component"))
@@ -16,11 +15,14 @@ function App() {
           <Home />
         </Suspense>
         } />
-        <Route path="blog" element={
-          <Suspense fallback={<div>loading...</div>}>
-          <Blog />
-        </Suspense>
-        } />
+        <Route path="blog">
+          <Route index element={
+            <Suspense fallback={<div>loading...</div>}>
+              <Blog />
+            </Suspense>
+          } />
+
+        </Route>
         <Route path="projects" element={ 
           <Suspense fallback={<div>loading...</div>}>
           <Project />
